@@ -10,7 +10,7 @@ export const ProductContextProvider =({children}) =>{
 
     useEffect(()=>{
         setLoading(true);
-        const getProducts =async() =>{
+        const getProducts = async() =>{
             await axios.get("https://fakestoreapi.com/products").then((res)=>{
                 setProductList(res.data); 
                 setLoading(false);  
@@ -18,7 +18,7 @@ export const ProductContextProvider =({children}) =>{
         }
 
         getProducts();
-    },[]);
+    },[])
 
     const values={
         productList,
@@ -28,6 +28,4 @@ export const ProductContextProvider =({children}) =>{
 } 
 
 
-export const useProduct =()=> {
-    useContext(ProductContext)
-};
+export const useProduct = () => useContext(ProductContext);
